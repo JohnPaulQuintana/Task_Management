@@ -456,6 +456,7 @@
             @else
                 {{-- admin side table --}}
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg border">
+
                     <div class="header-admin-table flex justify-between p-2 px-5 font-bold text-gray-600 text-xl">
                         <h1>Created Task</h1>
                         <div class="">
@@ -487,7 +488,7 @@
                                     <i class="fa-solid fa-calendar-circle-plus fa-xl"></i>
                                     <span class="sr-only">Search</span>
                                 </button>
-                            <form class="flex items-center max-w-sm mx-auto">
+                            <form class="flex items-center max-w-sm mx-auto" method="POST">
                                 
                                 <label for="simple-search" class="sr-only">Search</label>
                                 <div class="relative w-full">
@@ -518,6 +519,7 @@
 
                         </div>
                     </div>
+
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
@@ -538,6 +540,17 @@
                                 <th scope="col" class="px-6 py-3">
                                     <div class="flex items-center">
                                         Description
+                                        <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
+                                            </svg></a>
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    <div class="flex items-center">
+                                        Category
                                         <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                 viewBox="0 0 24 24">
@@ -577,28 +590,36 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @for ($i = 0; $i < 10; $i++)
+                            {{-- {{ $tasks }} --}}
+                            @foreach ($tasks as $task)
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th scope="row"
                                         class="px-6 py-4  font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <span class="bg-gray-100">{{ $i + 1 }}0-0122</span>
+                                        <span class="bg-gray-100">
+                                            <i class="fa-sharp fa-solid fa-circle text-green-400"></i>
+                                            {{ $task->task_number }}
+                                        </span>
                                     </th>
-                                    <td class="px-6 py-4">
-                                        Report Letter For Company
+                                    <td class="px-6 py-4 capitalize">
+                                        {{ $task->title }}
                                     </td>
-                                    <td class="px-6 py-4 text-ellipsis w-1/2">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, eum nam.
-                                        Molestias excepturi iusto atque! Eaque fugit saepe laudantium corrupti aliquam
-                                        quis amet! A magni enim omnis et, sint mollitia?
+                                    <td class="px-6 py-4 text-ellipsis max-w-1/3">
+                                        {{ $task->description }}
                                     </td>
                                     <td class="px-6 py-4">
                                         <span class="p-1 bg-gray-100 text-green-600 rounded-md">
                                             <i class="fa-sharp fa-solid fa-circle-check"></i>
-                                            ready
+                                            {{ $task->category }}
                                         </span>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <span class="p-1 rounded-md">{{ now() }}</span>
+                                        <span class="p-1 bg-gray-100 text-green-600 rounded-md">
+                                            <i class="fa-sharp fa-solid fa-circle-check"></i>
+                                            {{ $task->status }}
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span class="p-1 rounded-md">{{ $task->created_at }}</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
                                         <a href="#"
@@ -606,11 +627,15 @@
                                             <i class="fa-duotone fa-file-pen"></i>
                                             Edit
                                         </a>
+                                        <a href="#"
+                                            class="font-medium text-red-600 dark:text-blue-500 hover:underline">
+                                            <i class="fa-solid fa-file-xmark"></i>
+                                            Delete
+                                        </a>
                                     </td>
                                 </tr>
-                            @endfor
-
-
+                            @endforeach
+                                
                         </tbody>
                     </table>
                 </div>
@@ -670,6 +695,19 @@
     @section('scripts')
         <script>
             $(document).ready(function(){
+
+                let responseSuccess = @json(session('success'));
+                let responseStatus = @json(session('status'));
+                console.log(responseStatus)
+                if(responseStatus){
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: responseSuccess,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
 
                  // set the modal menu element
                 const $targetEl = document.getElementById('crud-modal');
