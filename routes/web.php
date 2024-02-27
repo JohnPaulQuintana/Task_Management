@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/completed', [TaskController::class, 'completed'])->name('completed');
+    Route::get('/today-task', [TaskController::class, 'today'])->name('today');
 
     Route::post('/store',[TaskController::class, 'store'])->name('store');
 });

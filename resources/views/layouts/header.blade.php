@@ -11,7 +11,7 @@
     </ul>
     <ul class="ml-auto flex items-center">
         {{-- users --}}
-        <li class="mr-1 dropdown">
+        {{-- <li class="mr-1 dropdown">
             <button type="button"
                 class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
                 <i class="ri-search-line"></i>
@@ -129,7 +129,7 @@
                     </ul>
                 </div>
             </div>
-        </li>
+        </li> --}}
 
         {{-- notification --}}
         <li class="dropdown">

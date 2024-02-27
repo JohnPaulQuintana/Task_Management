@@ -15,6 +15,11 @@ class TaskController extends Controller
        return view('layouts.task');
     }
 
+    public function today(){
+        $allTasked = Task::latest()->get();
+        return view('layouts.today', ['tasks' => $allTasked]);
+    }
+
     public function store(Request $request){
         $requestValidated = $request->only(['task_number', 'title', 'description', 'category']);
 
