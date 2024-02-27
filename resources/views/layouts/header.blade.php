@@ -279,9 +279,10 @@
         {{-- search icon --}}
         <li class="dropdown ml-3">
             <button type="button" class="dropdown-toggle flex items-center">
-                <img src="https://placehold.co/32x32" alt=""
-                    class="w-8 h-8 rounded block object-cover align-middle">
-                    <span class="text-sm ml-2 text-primary-600">{{ Auth::user()->name }}</span>
+                <i class="fa-solid fa-square-user rounded block object-cover align-middle text-3xl text-blue-500"></i>
+                {{-- <img src="https://placehold.co/32x32" alt=""
+                    class="w-8 h-8 rounded block object-cover align-middle"> --}}
+                    <span class="text-sm ml-2 text-blue-600">{{ Auth::user()->name }}</span>
             </button>
             <ul
                 class="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
