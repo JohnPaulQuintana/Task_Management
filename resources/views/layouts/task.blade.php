@@ -4,13 +4,32 @@
         @include('layouts.header')
 
         <div class="p-5 w-full">
+
             <div class="w-full px-5 header-t flex justify-between">
                 <h1 class="px-4 font-bold text-gray-600">
                     <i class="fa-duotone fa-list-check text-gray-800"></i>
-                    Today Task
+                    Completed Task
                 </h1>
 
-                
+                <div>
+                    <button type="button" class="border-b-2 border-red-400 p-1 hover:bg-gray-100 hover:cursor-pointer text-gray-500">
+                        <i class="fa-duotone fa-calendar-star text-red-500"></i>
+                        All
+                    </button>
+                    <button type="button" class="border-b-2 p-1 hover:bg-gray-100 hover:cursor-pointer text-gray-500">
+                        <i class="fa-duotone fa-calendar-star text-red-500"></i>
+                        Today
+                    </button>
+                    <button type="button" class="border-b-2 p-1 hover:bg-gray-100 hover:cursor-pointer text-gray-500">
+                        <i class="fa-duotone fa-calendar-star text-red-500"></i>
+                        Weekly
+                    </button>
+                    <button type="button" class="border-b-2 p-1 hover:bg-gray-100 hover:cursor-pointer text-gray-500">
+                        <i class="fa-duotone fa-calendar-star text-red-500"></i>
+                        Monthly
+                    </button>
+                </div>
+
                 <div>
                     <form class="flex items-center max-w-sm mx-auto">   
                         <label for="simple-search" class="sr-only">Search</label>
@@ -29,7 +48,11 @@
                             <span class="sr-only">Search</span>
                         </button>
                     </form>
+
+                    
                 </div>
+
+               
 
 
 
@@ -60,7 +83,7 @@
                         </div>
                         <div class="content flex px-1 my-4 gap-2 align-middle border-b-2 pb-4">
                             <i
-                                class="fa-duotone fa-file-pdf text-7xl border p-3 rounded-lg bg-blue-500 text-white"></i>
+                                class="fa-duotone fa-file-pdf text-7xl border p-3 rounded-lg bg-blue-50 border-blue-50 text-blue-500"></i>
                             <div class="">
                                 <a href="#">
                                     <h6 class="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -86,7 +109,7 @@
                             <a href="#"
                                 class="border px-3 rounded-md border-blue-200 text-white bg-blue-500 font-medium hover:bg-blue-400 ease-in duration-300">
                                 <i class="fa-duotone fa-file-pen text-white"></i>
-                                Update
+                                Go
                             </a>
                         </div>
 

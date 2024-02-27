@@ -13,6 +13,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
     {{-- font awesome --}}
     <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-462d1fe84b879d730fe2180b0e0354e0.css?vsn=d">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
@@ -45,16 +46,30 @@
 
             
         </div> --}}
-        @include('layouts.sidebar')
+       
         <!-- Page Content -->
+
+        @if (!Auth::user()->role)
+            @include('layouts.sidebar')
+           
+        @else
+           
+            @include('layouts.admin-sidebar')
+                     
+        @endif
+
         <main>
             {{ $slot }}
         </main>
+        
    
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ asset('js/index.js') }}"></script>
+
+    @yield('scripts')
 </body>
 
 </html>
