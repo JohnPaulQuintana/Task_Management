@@ -1,0 +1,142 @@
+.wrapper{
+    width: 27.94cm;
+    /* height: 35.7cm; */
+    border: 2px solid black;
+   
+}
+
+.wrapper .header{
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Adjust the fractions as needed */
+
+
+}
+/* left */
+.wrapper .header .left{
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+.wrapper .header .left #f-title{
+    font-size: 32px;
+    font-weight: 700;
+   
+    color: rgb(238, 158, 10);
+}
+.wrapper .header .left #s-title{
+    font-size: 32px;
+    font-weight: 400;
+}
+.wrapper .header .left #b-text{
+    font-size: 15px;
+    color: rgb(94, 91, 91);
+}
+
+/* right */
+.wrapper .header .right{
+    border: 2px solid black;
+    
+}
+
+.wrapper .header .right table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.wrapper .header .right table thead{
+    background-color: black;
+    text-align: left;
+    font-family:sans-serif;
+    
+}
+.wrapper .header .right table thead tr{
+    color: aliceblue;
+    font-size: 14px;
+}
+.wrapper .header .right table thead tr th{
+    padding: 10px;
+    font-weight: 100;
+}
+
+.wrapper .header .right table tbody tr td{
+    border: 1px solid black;
+    /* padding: 10px; */
+    font-weight: 700;
+    text-align: center;
+    white-space: normal; /* Allow text to wrap to the next line */
+}
+
+/* section */
+section{
+   
+   
+    margin-top: 40px;
+    padding: 5px;
+}
+section .section-content{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+   
+}
+
+section .section-2 span.span-title-2{
+    font-weight: 900;
+    text-transform: uppercase;
+    background-color: orange;
+    color: white;
+}
+section .section-content span{
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 18px;
+}
+section .section-content span.span-title-1{
+    font-weight: 900;
+    text-transform: uppercase;
+    background-color: rgb(194, 190, 190);
+}
+
+section table{
+    width: 100%;
+}
+section table thead tr #section-head{
+    padding: 10px;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+}
+section table thead tr .section-th{
+    background-color: rgb(212, 205, 205);
+    border: 1px solid black;
+}
+section table thead tr .section-2-h{
+    padding: 5px;
+    line-height: 20px;
+    background-color: orange;
+    color: white;
+}
+section table tbody tr td{
+    padding: 10px;
+    font-weight: 500;
+    border: 1px solid black;
+}
+section table thead tr .section-th-b{
+    width: 60%;
+}
+
+
+.text-right2{
+    padding: 10px;
+}
+
+
+/* Add a page break after the form */
+@media print {
+    .wrapper {
+        page-break-after: always;
+    }
+
+  
+}

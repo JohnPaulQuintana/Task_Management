@@ -18,17 +18,19 @@
                         </div>
                         <div class="flex items-center mb-4 order-tab">
                             <button type="button" data-tab="order" data-tab-page="completed"
-                                class="bg-gray-50 text-sm font-medium text-gray-600 py-2 px-4 rounded-tl-md rounded-bl-md hover:text-gray-600 active">Completed</button>
-                            <button type="button" data-tab="order" data-tab-page="priority"
+                                class="bg-gray-50 text-sm font-medium text-gray-600 py-2 px-4 rounded-tl-md rounded-bl-md hover:text-gray-600 active">Latest
+                                Task</button>
+                            {{-- <button type="button" data-tab="order" data-tab-page="priority"
                                 class="bg-gray-50 text-sm font-medium text-gray-600 py-2 px-4 hover:text-gray-900">Priority</button>
                             <button type="button" data-tab="order" data-tab-page="weekly"
                                 class="bg-gray-50 text-sm font-medium text-gray-600 py-2 px-4 rounded-tr-md rounded-br-md hover:text-gray-900">Weekly</button>
                             <button type="button" data-tab="order" data-tab-page="monthly"
-                                class="bg-gray-50 text-sm font-medium text-gray-600 py-2 px-4 rounded-tr-md rounded-br-md hover:text-gray-900">Monthly</button>
+                                class="bg-gray-50 text-sm font-medium text-gray-600 py-2 px-4 rounded-tr-md rounded-br-md hover:text-gray-900">Monthly</button> --}}
                         </div>
                         <div class="relative overflow-x-auto">
                             <table class="text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <thead
+                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Task Number
@@ -91,7 +93,7 @@
                                         <th scope="col" class="px-6 py-3">
                                             <div class="flex items-center">
                                                 Action
-        
+
                                             </div>
                                         </th>
                                     </tr>
@@ -129,7 +131,7 @@
                                                 <span class="p-1 rounded-md">{{ $task->created_at }}</span>
                                             </td>
                                             <td class="pr-4 py-4 text-right">
-                                                <a href="#"
+                                                <a href="{{ route('take', $task->id) }}"
                                                     class="font-medium text-blue-600 hover:text-blue-400 dark:text-blue-500 hover:underline">
                                                     <i class="fa-duotone fa-check-to-slot fa-2xl"></i>
                                                     Take
@@ -142,20 +144,21 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                        
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                   
+
 
                 </div>
             @else
                 {{-- admin side table --}}
                 <div class="shadow-md sm:rounded-lg border">
 
-                    <div class="header-admin-table flex justify-between max-sm:flex-wrap p-2 px-5 font-bold text-gray-600 text-xl">
+                    <div
+                        class="header-admin-table flex justify-between max-sm:flex-wrap p-2 px-5 font-bold text-gray-600 text-xl">
                         <h1 class="text-sm mt-2">Created Task</h1>
                         <div class="">
                             <button type="button"
@@ -182,23 +185,24 @@
 
                         <div class="flex gap-4">
                             <div class="mt-2">
-                                <i class="fa-solid fa-calendar-circle-plus text-green-500" data-modal-target="crud-modal" id="create-task"></i>
+                                <i class="fa-solid fa-calendar-circle-plus text-green-500"
+                                    data-modal-target="crud-modal" id="create-task"></i>
                                 <span class="sr-only">Search</span>
                             </div>
                             <form class="flex items-center max-w-sm mx-auto max-sm:mt-2" method="POST">
-                                
+
                                 <label for="simple-search" class="sr-only">Search</label>
                                 <div class="relative w-full">
                                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                         <i class="fa-solid fa-file-magnifying-glass text-blue-500"></i>
-                                       
+
                                     </div>
                                     <input type="text" id="simple-search"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="Search task number..." required />
                                 </div>
-                                
-                                
+
+
                             </form>
 
 
@@ -207,7 +211,8 @@
 
                     <div class="relative overflow-x-auto">
                         <table class="text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
                                         Task Number
@@ -270,7 +275,7 @@
                                     <th scope="col" class="px-6 py-3">
                                         <div class="flex items-center">
                                             Action
-    
+
                                         </div>
                                     </th>
                                 </tr>
@@ -308,39 +313,43 @@
                                             <span class="p-1 rounded-md">{{ $task->created_at }}</span>
                                         </td>
                                         <td class="pr-4 py-4 text-right">
-                                            <a href="#"
+                                            <a href="#" id="edit-task" data-id="{{ $task->id }}"
+                                                data-title="{{ $task->title }}"
+                                                data-number="{{ $task->task_number }}"
+                                                data-description="{{ $task->description }}"
+                                                data-category="{{ $task->category }}"
                                                 class="font-medium text-blue-600 hover:text-blue-400 dark:text-blue-500 hover:underline">
                                                 <i class="fa-duotone fa-file-pen fa-2xl"></i>
-                                                
+
                                             </a>
-                                            <a href="#"
+                                            <a href="#" id="delete-task" data-id="{{ $task->id }}"
                                                 class="font-medium text-red-600 hover:text-red-400 dark:text-blue-500 hover:underline">
                                                 <i class="fa-solid fa-file-xmark fa-2xl"></i>
-                                                
+
                                             </a>
                                         </td>
                                     </tr>
                                 @endforeach
-                                    
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             @endif
 
-           
+
         </div>
     </main>
 
     @include('layouts.create-task')
     @section('scripts')
         <script>
-            $(document).ready(function(){
+            $(document).ready(function() {
 
                 let responseSuccess = @json(session('success'));
                 let responseStatus = @json(session('status'));
                 console.log(responseStatus)
-                if(responseStatus){
+                if (responseStatus) {
                     Swal.fire({
                         position: "center",
                         icon: "success",
@@ -350,19 +359,18 @@
                     });
                 }
 
-                 // set the modal menu element
+                // set the modal menu element
                 const $targetEl = document.getElementById('crud-modal');
 
                 // options with default values
                 const options = {
                     placement: 'bottom-right',
                     backdrop: 'static',
-                    backdropClasses:
-                        'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
+                    backdropClasses: 'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
                     closable: true,
                     onHide: () => {
                         console.log('modal is hidden');
-                        const inputElements = $targetEl.querySelectorAll('input');
+                        const inputElements = $targetEl.querySelectorAll('.input');
                         inputElements.forEach((input) => {
                             input.value = '';
                         });
@@ -381,20 +389,41 @@
                     override: true
                 };
 
-                $(document).on('click', '#create-task', function(){
-                
+                // create task
+                $(document).on('click', '#create-task', function() {
+
+                    $('.h3').text('Create New Task')
                     const modal = new Modal($targetEl, options, instanceOptions);
                     // show the modal
                     modal.show();
                 })
-                $(document).on('click', '#close-crud', function(){
-                
+
+                // edit task
+                $(document).on('click', '#edit-task', function() {
+                    $('.h3').text('Edit Task')
+                    let taskID = $(this).data('id')
+                    let taskNumber = $(this).data('number')
+                    let taskTitle = $(this).data('title')
+                    let taskDescription = $(this).data('description')
+                    let taskCategory = $(this).data('category')
+                    $('#task-id').val(taskID)
+                    $('#task_number').val(taskNumber)
+                    $('#task_title').val(taskTitle)
+                    $('#description').val(taskDescription)
+
+                    const modal = new Modal($targetEl, options, instanceOptions);
+                    // show the modal
+                    modal.show();
+                })
+                $(document).on('click', '#close-crud', function() {
+
                     const modal = new Modal($targetEl, options, instanceOptions);
                     // show the modal
                     modal.hide();
                 })
+
+                
             })
         </script>
-       
     @endsection
 </x-app-layout>

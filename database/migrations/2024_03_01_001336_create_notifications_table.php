@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('section3s', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->string('s3_page_no');
-            $table->string('s3_revision_no');
-            $table->longText('s3_change_description');
-            $table->string('s3_effective_date');
+            $table->unsignedBigInteger('user_id');
+            $table->text('document_number');
+            $table->text('role');
+            $table->boolean('read')->default(0);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('section3s');
+        Schema::dropIfExists('notifications');
     }
 };

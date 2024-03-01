@@ -1,67 +1,73 @@
-<!-- Main modal -->
-<div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-7xl max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white h3">
-                    
-                </h3>
-                <button type="button" id="close-crud" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
+<x-app-layout>
+    <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main">
+        @include('layouts.header')
+        <div class="p-6">
+
+            <div class="flex justify-between mb-4 items-start">
+                <a href="{{ route('dashboard') }}" class="font-medium">
+                    <i class="fa-duotone fa-backward fa-2xl px-4 text-red-500"></i>
+                    Selected Document Number - <span class="text-red-500 font-bold border-b-2 border-red-500">{{ $tasks->task_number }}</span>
+                </a>
+
             </div>
-            <!-- Modal body -->
-            <form class="p-4 md:p-5" method="POST" action="{{ route('store') }}">
-                {{-- id --}}
-                <input type="number" class="input hidden" name="task_id" id="task-id" value="">
-                @csrf
-                <div class="flex justify-between">
-                    {{-- to save --}}
-                    <div class="grid gap-4 mb-4 p-2 grid-cols-2 max-h-80">
-                        <div class="col-span-2 sm:col-span-1">
-                            <label for="task_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Document Number</label>
-                            <input type="text" name="task_number" id="task_number" class="input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type task title" required="">
-                        </div>
-                        <div class="col-span-2 sm:col-span-1">
-                            <label for="task_title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Document Title</label>
-                            <input type="text" name="title" id="task_title" class="input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type task title" required="">
-                        </div>
-                        <div class="col-span-2 sm:col-span-1">
-                            <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Document Category</label>
-                            <select id="category" name="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                
-                                <option value="daily">Daily</option>
-                                <option value="weekly">Weekly</option>
-                                <option value="monthly">Monthly</option>
-                            </select>
-                        </div>
-                        {{-- <div class="col-span-2 sm:col-span-1">
-                            <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                            <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option selected="">Select status</option>
-                                <option value="ready">Ready</option>
-                                <option value="ongoing">On-going</option>
-                                <option value="completed">Completed</option>
-                            </select>
-                        </div> --}}
-                        <div class="col-span-2">
+
+            <div class="">
+
+               
+                    <form action="{{ route('completed.task') }}" method="POST" class="grid grid-cols-3">
+                        
+                        @csrf
+                        <div class="max-w-sm p-2 border">
+                            <input type="number" name="task_id" value="{{ $tasks->id }}" class="hidden">
+                            <div class="mb-5 text-center">
+                                <label for="category"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Category</label>
+                                <input readonly type="text" 
+                                    class="bg-gray-50 border uppercase border-gray-300 text-gray-900 text-sm text-center font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="name@flowbite.com" 
+                                    value="{{ $tasks->category }}"    
+                                />
+                            </div>
                             
-                            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Document Description</label>
-                            <textarea id="description" name="description" rows="4" class="input block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+                            <div class="mb-5 text-center">
+                                <label for="title"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Title</label>
+                                <input readonly type="text" 
+                                    class="bg-gray-50 border uppercase border-gray-300 text-gray-900 text-sm text-center font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="name@flowbite.com" 
+                                    value="{{ $tasks->title }}"    
+                                />
+                            </div>
     
+                            <div class="mb-5 text-center">
+                                <label for=""
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Title</label>
+                                <input readonly type="text" 
+                                    class="bg-gray-50 border uppercase border-gray-300 text-gray-900 text-sm text-center font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="name@flowbite.com" 
+                                    value="{{ $tasks->task_number }}"    
+                                />
+                            </div>
+    
+                            <div class="mb-5 text-center">
+                                <label for=""
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Instruction</label>
+                
+                                <textarea readonly rows="4" class="block uppercase font-bold p-2.5 w-full text-sm text-left text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here...">
+                                    {{ $tasks->description }}
+                                </textarea>
+                                
+                                
+                            </div>
+                            <div class="mb-5 text-center">
+                                <button id="completed_task" type="submit" class="border rounded-md p-3 bg-blue-500 text-white hover:bg-blue-700">Complete Tasked</button>
+                            </div>
+                            
                         </div>
-                        
-                        <input type="submit" value="save task" class="w-full bg-blue-500 rounded-md text-white p-1 hover:bg-blue-700">
-                        
-                    </div>
+    
     
                     {{-- pdf --}}
-                    <div class="max-h-screen shadow-md overflow-scroll p-4">
+                    <div class="max-h-screen shadow-md overflow-scroll col-span-2" id="contentToPrint">
                         <!-- page 1 -->
                         <div class="wrapper md:max-w-full">
                             <div class="header">
@@ -201,8 +207,8 @@
                                         </thead>
                                         <tbody>
                                             <td class="p-0"><input type="text" name="s4_section" id="" value="{{ $section4[0]->s4_section }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
-                                            <td class="p-0"><input type="text" name="s4_title" id="" value="{{ $section4[0]->s4_title }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
-                                            <td class="p-0"><input type="text" name="s4_document_number" id="" value="{{ $section4[0]->s4_document_number }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td class="p-0"><input type="text" name="s4_title" id="" value="{{ $tasks->title }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td class="p-0"><input type="text" name="s4_document_number" id="" value="{{ $tasks->task_number }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
                                         </tbody>
                                     </table>
                                     <table>
@@ -264,51 +270,78 @@
                                         
                                         <tr>
                                             <th class="text-right2">Conference Room</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_conference_1" class="checkbox1"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_conference_2" class="checkbox1"></td>
+                                            <td style="padding: 0;overflow: hidden;">
+                                                <input type="text" name="s6_conference_3" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
                                         </tr>
                                         <tr>
                                             <th class="text-right2">Pantry Room</t>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_pantry_1" class="checkbox1"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_pantry_2" class="checkbox1"></td>
+                                            <td style="padding: 0;overflow: hidden;">
+                                                <input type="text" name="s6_pantry_3" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
                                         </tr>
                                         <tr>
                                             <th class="text-right2">Admin Office</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_admin_1" class="checkbox1"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_admin_2" class="checkbox1"></td>
+                                            <td style="padding: 0;overflow: hidden;">
+                                                <input type="text" name="s6_admin_3" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
                                         </tr>
                                         <tr><th class="text-right2">Manager's Office</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_manager_1" class="checkbox1"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_manager_2" class="checkbox1"></td>
+                                            <td style="padding: 0;overflow: hidden;">
+                                                <input type="text" name="s6_manager_3" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
                                         </tr>
                                         <tr><th class="text-right2">Comfort Room</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_comfort_1" class="checkbox1"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_comfort_2" class="checkbox1"></td>
+                                            <td style="padding: 0;overflow: hidden;">
+                                                <input type="text" name="s6_comfort_3" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
                                         </tr>
                                         <tr><th class="text-right2">Storage Room</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_storage_1" class="checkbox1"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_storage_2" class="checkbox1"></td>
+                                            <td style="padding: 0;overflow: hidden;">
+                                                <input type="text" name="s6_storage_3" id="" class="border-0 focus:ring-0" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
                                         </tr>
                                         <tr><th class="text-right2">Hallway</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_hallway_1" class="checkbox1"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_hallway_2" class="checkbox1"></td>
+                                            <td style="padding: 0;overflow: hidden;">
+                                                <input type="text" name="s6_hallway_3" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
                                         </tr>
                                         <tr><th class="text-right2">Control Room</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_control_1" class="checkbox1"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_control_2" class="checkbox1"></td>
+                                            <td style="padding: 0;overflow: hidden;">
+                                                <input type="text" name="s6_control_3" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
                                         </tr>
                                         <tr><th class="text-right2">Exterior Surrounding</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_exterior_1" class="checkbox1"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_exterior_2" class="checkbox1"></td>
+                                            <td style="padding: 0;overflow: hidden;">
+                                                <input type="text" name="s6_exterior_3" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
                                         </tr>
     
                                         
@@ -344,7 +377,8 @@
                                         <tr>
                                             <th class="">PERFORMED BY</th>
                                             
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
+                                            <td style="padding: 0;overflow: hidden;">
+                                                <input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
                                             <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
                                             <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
                                             <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
@@ -370,10 +404,28 @@
                             
                         </div>
                     </div>
-                </div>
+    
+                   
+                    </form>
+            </div>
 
-                
-            </form>
         </div>
-    </div>
-</div> 
+    </main>
+
+    @section('scripts')
+        <script>
+             let responseSuccess = @json(session('success'));
+                let responseStatus = @json(session('status'));
+                console.log(responseStatus)
+                if(responseStatus){
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: responseSuccess,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+        </script>
+    @endsection
+</x-app-layout>

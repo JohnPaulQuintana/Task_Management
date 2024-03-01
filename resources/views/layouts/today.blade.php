@@ -25,7 +25,7 @@
                                         d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2" />
                                 </svg>
                             </div>
-                            <input type="text" id="simple-search"
+                            <input type="text" id="daily-search"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Search task number..." required />
                         </div>
@@ -49,11 +49,12 @@
 
             </div>
 
-            <div class="p-4 grid lg:grid-cols-4 gap-2 sm:grid-cols-1 md:grid-cols-3">
+            <div class="p-4 grid lg:grid-cols-4 gap-2 sm:grid-cols-1 md:grid-cols-3" id="daily-list">
 
                 @foreach ($tasks as $task)
                     <div
-                        class="max-w-sm bg-white p-2 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:bg-blue-100">
+                        data-n="{{ $task->task_number }}"
+                        class="task max-w-sm bg-white p-2 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:bg-blue-100">
                         <div class="header flex justify-between">
                             <div class="">
                                 <span class="text-red-400 font-bold text-xs p-1 bg-gray-50 rounded-md">
@@ -97,7 +98,8 @@
                                 <i class="fa-duotone fa-circle-user fa-2xl"></i>
                                 Administrator
                             </span>
-                            <a href="#"
+                            <a href="{{ route('take',$task->id) }}"
+                               
                                 class="border px-3 rounded-md border-blue-200 text-white bg-blue-500 font-medium hover:bg-blue-400 ease-in duration-300">
                                 <i class="fa-duotone fa-file-pen text-white"></i>
                                 Go
@@ -112,4 +114,29 @@
             </div>
         </div>
     </main>
+
+    @section('scripts')
+        <script>
+            // monthly search
+                // Listen for input changes
+                $('#daily-search').on('input', function() {
+                    console.log('dwadwa')
+                        // Get the search term
+                        var searchTerm = $(this).val().toLowerCase();
+
+                        // Loop through each task and show/hide based on the search term
+                        $('#daily-list .task').each(function() {
+                            var taskNumber = $(this).data('n').toLowerCase();
+
+                            // Check if the task number includes the search term
+                            if (taskNumber.includes(searchTerm)) {
+                                $(this).show();
+                            } else {
+                                $(this).hide();
+                            }
+                        });
+                    });
+        </script>
+        
+    @endsection
 </x-app-layout>

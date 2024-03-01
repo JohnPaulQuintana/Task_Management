@@ -15,39 +15,39 @@
         </li>
 
         <li class="mb-1 group">
-            <a href="#"
+            <a href="{{ route('completed.admin') }}"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="fa-solid fa-ballot-check mr-3 text-lg"></i>
                 <span class="text-sm">Completed Task</span>
-                {{-- <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i> --}}
-                <span class="ml-auto group-[.selected]:rotate-90">
+                <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
+                {{-- <span class="ml-auto group-[.selected]:rotate-90">
                     <span class="border border-red-500 rounded-md p-1 text-sm bg-red-500">10</span>
-                </span>
+                </span> --}}
             </a>
         </li>
 
         <li class="mb-1 group">
-            <a href="#"
+            <a href="{{ route('created.admin') }}"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="fa-sharp fa-solid fa-list-check mr-3 text-lg"></i>
                 {{-- <i class="ri-home-2-line "></i> --}}
                 <span class="text-sm">Created Task</span>
-                {{-- <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i> --}}
-                <span class="ml-auto group-[.selected]:rotate-90">
+                <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
+                {{-- <span class="ml-auto group-[.selected]:rotate-90">
                     <span class="border border-red-500 rounded-md p-1 text-sm bg-red-500">10</span>
-                </span>
+                </span> --}}
             </a>
         </li>
 
         <li class="mb-1 group">
-            <a href="#"
+            <a href="{{ route('admin.users') }}"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="fa-duotone fa-users mr-3 text-lg"></i>
                 <span class="text-sm">Users</span>
-                {{-- <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i> --}}
-                <span class="ml-auto group-[.selected]:rotate-90">
+                <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
+                {{-- <span class="ml-auto group-[.selected]:rotate-90">
                     <span class="border border-red-500 rounded-md p-1 text-sm bg-red-500">10</span>
-                </span>
+                </span> --}}
             </a>
         </li>
         

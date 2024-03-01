@@ -135,143 +135,36 @@
         <li class="dropdown">
             <button type="button"
                 class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
-                <i class="ri-notification-3-line"></i>
+                <span class="text-sm font-bold text-red-500" id="count"></span>
+                <i class="ri-notification-3-line text-2xl"></i>
+                
             </button>
             <div
                 class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
                 <div class="flex items-center px-4 pt-4 border-b border-b-gray-100 notification-tab">
                     <button type="button" data-tab="notification" data-tab-page="notifications"
-                        class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active">Notifications</button>
-                    <button type="button" data-tab="notification" data-tab-page="messages"
-                        class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1">Messages</button>
+                        class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active">
+                        Notifications
+                        <span class="text-red-500 font-bold" id="countB"></span>
+                    </button>
+                       
                 </div>
                 <div class="my-2">
-                    <ul class="max-h-64 overflow-y-auto" data-tab-for="notification"
-                        data-page="notifications">
+                    <ul class="max-h-64 overflow-y-auto notif-container">
                         <li>
                             <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
+                                <i class="fa-duotone fa-user-tie fa-2xl rounded block object-cover align-middle"></i>
                                 <div class="ml-2">
                                     <div
                                         class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        New order</div>
-                                    <div class="text-[11px] text-gray-400">from a user</div>
+                                        Hello There!</div>
+                                    <div class="text-[11px] text-gray-400">from a system</div>
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        New order</div>
-                                    <div class="text-[11px] text-gray-400">from a user</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        New order</div>
-                                    <div class="text-[11px] text-gray-400">from a user</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        New order</div>
-                                    <div class="text-[11px] text-gray-400">from a user</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        New order</div>
-                                    <div class="text-[11px] text-gray-400">from a user</div>
-                                </div>
-                            </a>
-                        </li>
+                        
                     </ul>
-                    <ul class="max-h-64 overflow-y-auto hidden" data-tab-for="notification"
-                        data-page="messages">
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        John Doe</div>
-                                    <div class="text-[11px] text-gray-400">Hello there!</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        John Doe</div>
-                                    <div class="text-[11px] text-gray-400">Hello there!</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        John Doe</div>
-                                    <div class="text-[11px] text-gray-400">Hello there!</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        John Doe</div>
-                                    <div class="text-[11px] text-gray-400">Hello there!</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        John Doe</div>
-                                    <div class="text-[11px] text-gray-400">Hello there!</div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                    
                 </div>
             </div>
         </li>

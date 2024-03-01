@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('section5s', function (Blueprint $table) {
             $table->id();
-            $table->string('s5_equipment')->nullable();
-            $table->string('s5_site_location')->nullable();
-            $table->string('s5_work_order')->nullable();
-            $table->string('s5_date_performed')->nullable();
-            $table->string('s5_instruction')->nullable();
+            $table->longText('s5_equipment')->nullable();
+            $table->longText('s5_site_location')->nullable();
+            $table->longText('s5_work_order')->nullable();
+            $table->longText('s5_date_performed')->nullable();
+            $table->longText('s5_instruction')->nullable();
             $table->timestamps();
         });
     }
