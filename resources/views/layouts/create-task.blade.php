@@ -84,9 +84,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <td class="p-0"><input type="text" name="s1_section" id="" value="{{ $section1[0]->s1_section }}" class="border-1 focus:ring-0" style="width: 100%; height: 40px;"></td>
-                                            <td class="p-0"><input type="text" name="s1_title" id="" value="{{ $section1[0]->s1_title }}" class="border-0 focus:ring-0 whitespace-pre-wrap" style="width: 100%; height: 40px;"></td>
-                                            <td class="p-0"><input type="text" name="s1_document_number" id="" value="{{ $section1[0]->s1_document_number }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td class="p-0"><input type="text" name="s1_section" id="" value="{{ $section1[0]->s1_section }}" class="border-1 focus:ring-0" style="width: 100%; height: 40px;" readonly></td>
+                                            <td class="p-0"><input type="text" name="s1_title" id="" value="{{ $section1[0]->s1_title }}" class="border-0 focus:ring-0 whitespace-pre-wrap" style="width: 100%; height: 40px;" readonly></td>
+                                            <td class="p-0"><input type="text" name="s1_document_number" id="" value="{{ $section1[0]->s1_document_number }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></td>
                                         </tbody>
                                     </table>
                                     <table>
@@ -99,9 +99,9 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" name="s1_effective_date" id="" value="{{ $section1[0]->s1_effective_date }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;"></td>
-                                                <td><input type="text" name="s1_revision_number" id="" value="{{ $section1[0]->s1_revision_number }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;"></td>
-                                                <td><input type="text" name="s1_page" id="" value="{{ $section1[0]->s1_page }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;"></td>
+                                                <td><input type="text" name="s1_effective_date" id="" value="{{ $section1[0]->s1_effective_date }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;" readonly></td>
+                                                <td><input type="text" name="s1_revision_number" id="" value="{{ $section1[0]->s1_revision_number }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;" readonly></td>
+                                                <td><input type="text" name="s1_page" id="" value="{{ $section1[0]->s1_page }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;" readonly></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -111,27 +111,27 @@
                             <section>
                                 <div class="section-content">
                                     <span class="span-title-1">TITLE</span>
-                                    <span><input type="text" name="s2_title" id="" value="{{ $section2[0]->s2_title }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></span>
+                                    <span><input type="text" name="s2_title" id="" value="{{ $section2[0]->s2_title }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                                 <div class="section-content">
                                     <span class="span-title-1">DOCUMENT NUMBER</span>
-                                    <span><input type="text" name="s2_document_number" id="" value="{{ $section2[0]->s2_document_number }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></span>
+                                    <span><input type="text" name="s2_document_number" id="" value="{{ $section2[0]->s2_document_number }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                                 <div class="section-content">
                                     <span class="span-title-1">DEPARTMENT</span>
-                                    <span><input type="text" name="s2_department" id="" value="{{ $section2[0]->s2_department }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></span>
+                                    <span><input type="text" name="s2_department" id="" value="{{ $section2[0]->s2_department }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                                 <div class="section-content">
                                     <span class="span-title-1">PREPARED BY</span>
-                                    <span><input type="text" name="s2_prepared_by" id="" value="{{ $section2[0]->s2_prepared_by }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></span>
+                                    <span><input type="text" name="s2_prepared_by" id="" value="{{ $section2[0]->s2_prepared_by }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                                 <div class="section-content">
                                     <span class="span-title-1">REVIEWED BY</span>
-                                    <span><input type="text" name="s2_reviewed_by" id="" value="{{ $section2[0]->s2_reviewed_by }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></span>
+                                    <span><input type="text" name="s2_reviewed_by" id="" value="{{ $section2[0]->s2_reviewed_by }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                                 <div class="section-content">
                                     <span class="span-title-1">APPROVED BY</span>
-                                    <span><input type="text" name="s2_approved_by" id="" value="{{ $section2[0]->s2_approved_by }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></span>
+                                    <span><input type="text" name="s2_approved_by" id="" value="{{ $section2[0]->s2_approved_by }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                             </section>
     
@@ -153,17 +153,17 @@
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                             <td>{{ $section3[0]->s3_page_no }}</td>
                                             <td>{{ $section3[0]->s3_revision_no }}</td>
-                                            <td><textarea readonly class="border-0" name="s3_change_description_0" id="" cols="50" rows="1">{{ $section3[0]->s3_change_description }}</textarea></td>
-                                            <td><input readonly type="text" name="s3_effective_date" id="" value="{{ $section3[0]->s3_effective_date }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td><textarea readonly class="border-0" name="s3_change_description_0" id="" cols="50" rows="1" readonly>{{ $section3[0]->s3_change_description }}</textarea></td>
+                                            <td><input readonly type="text" name="s3_effective_date" id="" value="{{ $section3[0]->s3_effective_date }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                             <td>{{ $section3[1]->s3_page_no }}</td>
                                             <td>{{ $section3[1]->s3_revision_no }}</td>
                                             <td>
                                                 <label for="">Revision of the following:</label>
-                                                <textarea readonly class="border-0 text-wrap" name="s3_change_description" id="" cols="50" rows="5">{{ $section3[1]->s3_change_description }}</textarea>
+                                                <textarea readonly class="border-0 text-wrap" name="s3_change_description" id="" cols="50" rows="5" readonly>{{ $section3[1]->s3_change_description }}</textarea>
                                             </td>
-                                            <td><input readonly type="text" name="s3_effective_date" id="" value="{{ $section3[1]->s3_effective_date }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td><input readonly type="text" name="s3_effective_date" id="" value="{{ $section3[1]->s3_effective_date }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></td>
                                         </tr>
                                         <tr class="bg-white border-1 border-black dark:bg-gray-800 dark:border-gray-700">
                                             <td></td>
@@ -200,9 +200,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <td class="p-0"><input type="text" name="s4_section" id="" value="{{ $section4[0]->s4_section }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
-                                            <td class="p-0"><input type="text" name="s4_title" id="" value="{{ $section4[0]->s4_title }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
-                                            <td class="p-0"><input type="text" name="s4_document_number" id="" value="{{ $section4[0]->s4_document_number }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td class="p-0"><input type="text" name="s4_section" id="" value="{{ $section4[0]->s4_section }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></td>
+                                            <td class="p-0"><input type="text" name="s4_title" id="" value="{{ $section4[0]->s4_title }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></td>
+                                            <td class="p-0"><input type="text" name="s4_document_number" id="" value="{{ $section4[0]->s4_document_number }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></td>
                                         </tbody>
                                     </table>
                                     <table>
@@ -215,9 +215,9 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="p-0"><input type="text" name="s4_effective_date" id="" value="{{ $section4[0]->s4_effective_date }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;"></td>
-                                                <td><input type="text" name="s4_revision_number" id="" value="{{ $section4[0]->s4_revision_number }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;"></td>
-                                                <td><input type="text" name="s4_page" id="" value="{{ $section4[0]->s4_page }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;"></td>
+                                                <td class="p-0"><input type="text" name="s4_effective_date" id="" value="{{ $section4[0]->s4_effective_date }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;" readonly></td>
+                                                <td><input type="text" name="s4_revision_number" id="" value="{{ $section4[0]->s4_revision_number }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;" readonly></td>
+                                                <td><input type="text" name="s4_page" id="" value="{{ $section4[0]->s4_page }}" class="border-0 focus:ring-0 text-center" style="width: 100%; height: 40px;" readonly></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -227,24 +227,24 @@
                             <section>
                                 <div class="section-content section-2">
                                     <span class="span-title span-title-2">EQUIPMENT:</span>
-                                    <span><input type="text" name="s5_equipment" id="" value="{{ $section5[0]->s5_equipment }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></span>
+                                    <span><input type="text" name="s5_equipment" id="" value="{{ $section5[0]->s5_equipment }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                                 <div class="section-content section-2">
                                     <span class="span-title span-title-2">SITE LOCATION:</span>
-                                    <span><input type="text" name="s5_site_location" id="" value="{{ $section5[0]->s5_site_location }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></span>
+                                    <span><input type="text" name="s5_site_location" id="" value="{{ $section5[0]->s5_site_location }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                                 <div class="section-content section-2">
                                     <span class="span-title span-title-2">WORDER ORDER #:</span>
-                                    <span><input type="text" name="s5_work_order" id="" value="{{ $section5[0]->s5_work_order }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></span>
+                                    <span><input type="text" name="s5_work_order" id="" value="{{ $section5[0]->s5_work_order }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                                 <div class="section-content section-2">
                                     <span class="span-title span-title-2">DATE/S PERFORMED:</span>
-                                    <span><input type="text" name="s5_date_performed" id="" value="{{ $section5[0]->s5_date_performed }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></span>
+                                    <span><input type="text" name="s5_date_performed" id="" value="{{ $section5[0]->s5_date_performed }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                                 <div class="section-content section-2">
                                     <span class="span-title span-title-2">INSTRUCTION:</span>
                                     <span>
-                                        <textarea class="border-0 text-left" name="s5_instruction" id="" cols="50" rows="3">{{ $section5[0]->s5_instruction }}</textarea>
+                                        <textarea class="border-0 text-left w-full" name="s5_instruction" id="" cols="50" rows="3" readonly>{{ $section5[0]->s5_instruction }}</textarea>
                                     </span>
                                 </div>
                                 
@@ -261,54 +261,56 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                        <tr><th class="text-right2">Control Room</th>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" disabled></td>
+                                        </tr>
                                         
                                         <tr>
                                             <th class="text-right2">Conference Room</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" disabled></td>
                                         </tr>
                                         <tr>
                                             <th class="text-right2">Pantry Room</t>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" disabled></td>
                                         </tr>
                                         <tr>
                                             <th class="text-right2">Admin Office</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" disabled></td>
                                         </tr>
                                         <tr><th class="text-right2">Manager's Office</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" disabled></td>
                                         </tr>
                                         <tr><th class="text-right2">Comfort Room</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" disabled></td>
                                         </tr>
                                         <tr><th class="text-right2">Storage Room</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" disabled></td>
                                         </tr>
                                         <tr><th class="text-right2">Hallway</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" disabled></td>
                                         </tr>
-                                        <tr><th class="text-right2">Control Room</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
-                                        </tr>
+                                        
                                         <tr><th class="text-right2">Exterior Surrounding</th>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="text-align: center;"><input type="checkbox" class="checkbox1" disabled></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" disabled></td>
                                         </tr>
     
                                         
@@ -344,24 +346,24 @@
                                         <tr>
                                             <th class="">PERFORMED BY</th>
                                             
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
                                         </tr>
                                         <tr>
                                             <th class="">VERIFIED BY</t>
-                                                <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
-                                                <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
-                                                <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
-                                                <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
+                                                <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
+                                                <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
+                                                <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
+                                                <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
                                         </tr>
                                         <tr>
                                             <th class="">APPROVED BY</th>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
-                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;"></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
+                                            <td style="padding: 0;overflow: hidden;"><input type="text" name="" id="" style="width: 100%; height: 40px;" readonly></td>
                                         </tr>
                                         
                                         

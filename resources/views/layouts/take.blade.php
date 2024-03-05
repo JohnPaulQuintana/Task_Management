@@ -250,7 +250,7 @@
                                 <div class="section-content section-2">
                                     <span class="span-title span-title-2">INSTRUCTION:</span>
                                     <span>
-                                        <textarea class="border-0 text-left" name="s5_instruction" id="" cols="50" rows="3">{{ $section5[0]->s5_instruction }}</textarea>
+                                        <textarea class="border-0 text-left w-full" name="s5_instruction" id="" cols="50" rows="3">{{ $section5[0]->s5_instruction }}</textarea>
                                     </span>
                                 </div>
                                 
@@ -267,7 +267,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+                                        <tr><th class="text-right2">Control Room</th>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_control_1" class="checkbox1"></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="s6_control_2" class="checkbox1"></td>
+                                            <td style="padding: 0;overflow: hidden;">
+                                                <input type="text" name="s6_control_3" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
+                                        </tr>
                                         <tr>
                                             <th class="text-right2">Conference Room</th>
                                             <td style="text-align: center;">
@@ -327,14 +334,7 @@
                                             <td style="padding: 0;overflow: hidden;">
                                                 <input type="text" name="s6_hallway_3" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
                                         </tr>
-                                        <tr><th class="text-right2">Control Room</th>
-                                            <td style="text-align: center;">
-                                                <input type="checkbox" name="s6_control_1" class="checkbox1"></td>
-                                            <td style="text-align: center;">
-                                                <input type="checkbox" name="s6_control_2" class="checkbox1"></td>
-                                            <td style="padding: 0;overflow: hidden;">
-                                                <input type="text" name="s6_control_3" id="" class="border-0 focus:ring-0" style="width: 100%; height: 40px;"></td>
-                                        </tr>
+                                        
                                         <tr><th class="text-right2">Exterior Surrounding</th>
                                             <td style="text-align: center;">
                                                 <input type="checkbox" name="s6_exterior_1" class="checkbox1"></td>

@@ -69,17 +69,22 @@ class TaskController extends Controller
         // Retrieve tasks along with completed tasks for the authenticated user using join
         $tasksWithCompletedTasks = DB::table('completed_tasks')
         ->join('tasks', 'completed_tasks.task_id', '=', 'tasks.id')
-        ->join('p_d_f_paths', 'completed_tasks.id', '=', 'p_d_f_paths.task_id')
+        ->leftjoin('p_d_f_paths', 'completed_tasks.id', '=', 'p_d_f_paths.task_id')
         ->where('completed_tasks.user_id', Auth::user()->id)
         ->select('tasks.id as taskID', 'tasks.title', 'tasks.description', 'tasks.category', 'tasks.task_number',
             'completed_tasks.user_id', 'completed_tasks.task_id', 'completed_tasks.id as completedID',
             'p_d_f_paths.id as pathID', 'p_d_f_paths.path'
         )
         ->get();
-        
-        // dd($tasksWithCompletedTasks);
 
-        return view('layouts.task', ['tasks' => $tasksWithCompletedTasks]);
+        // Use Laravel's collection methods to remove duplicates
+$uniqueTasksWithCompletedTasks = collect($tasksWithCompletedTasks)->groupBy('completedID')->map->first()->values()->all();
+
+
+        
+        // dd($uniqueTasksWithCompletedTasks);
+
+        return view('layouts.task', ['tasks' => $uniqueTasksWithCompletedTasks]);
     }
     public function completedAdmin()
     {

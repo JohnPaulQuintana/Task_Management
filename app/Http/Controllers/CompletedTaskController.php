@@ -28,24 +28,30 @@ class CompletedTaskController extends Controller
         // Insert a single record with user_id
         CompletedTask::create(array_merge($request->all(), ['user_id' => $userId]));
         
-        // Retrieve all CompletedTasks
-        $allCompletedTasks = CompletedTask::where('user_id', $userId)->first();
-        // dd($allCompletedTasks);
-        Pdf::setOption(['dpi' => 300, 'defaultFont' => 'sans-serif']);
+       // Get the currently authenticated user's ID
+$userId = Auth::user()->id;
 
-        $pdf = Pdf::loadView('pdf-templates.pdf', ['render'=>$allCompletedTasks]);
-        // Generate a unique filename for the PDF
-        $filename = 'completed/'.$userId.'_' . uniqid() . '.pdf';
+// Insert a single record with user_id
+$completedTask = CompletedTask::create(array_merge($request->all(), ['user_id' => $userId]));
 
-        PDFPath::create(["user_id"=>$userId,"task_id"=>$allCompletedTasks->id,"path"=>$filename]);
-         // Ensure the "completed" directory exists
-        // Storage::makeDirectory('completed');
-        $pdf->setPaper('a4', 'portrait')->save(Storage::disk('public')->path($filename));
+// Use the just-created CompletedTask instance to generate the PDF
+Pdf::setOption(['dpi' => 300, 'defaultFont' => 'sans-serif']);
+$pdf = Pdf::loadView('pdf-templates.pdf', ['render' => $completedTask]);
 
-        event(new NotifyEvent(["from_id"=>$userId,"role"=>0, 'status'=>"completed"]));
-        
-        // notification save
-        Notification::create(['user_id'=>$userId, 'document_number'=>$allCompletedTasks->s4_document_number, 'role'=>0]);
+// Generate a unique filename for the PDF
+$filename = 'completed/' . $userId . '_' . uniqid() . '.pdf';
+
+PDFPath::create(["user_id" => $userId, "task_id" => $completedTask->id, "path" => $filename]);
+
+// Ensure the "completed" directory exists
+// Storage::makeDirectory('completed');
+$pdf->setPaper('a4', 'portrait')->save(Storage::disk('public')->path($filename));
+
+event(new NotifyEvent(["from_id" => $userId, "role" => 0, 'status' => "completed"]));
+
+// notification save
+Notification::create(['user_id' => $userId, 'document_number' => $completedTask->s4_document_number, 'role' => 0]);
+
         
         return redirect()->back()->with(['success' => 'Task completed successfully', 'status' => true]);
     }
