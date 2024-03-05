@@ -23,10 +23,6 @@ class CompletedTaskController extends Controller
     
 
         // task
-        // Get the currently authenticated user's ID
-        $userId = Auth::user()->id;
-        // Insert a single record with user_id
-        CompletedTask::create(array_merge($request->all(), ['user_id' => $userId]));
         
        // Get the currently authenticated user's ID
 $userId = Auth::user()->id;
