@@ -28,7 +28,7 @@
                                 class="bg-gray-50 text-sm font-medium text-gray-600 py-2 px-4 rounded-tr-md rounded-br-md hover:text-gray-900">Monthly</button> --}}
                         </div>
                         <div class="relative overflow-x-auto">
-                            <table class="text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                 <thead
                                     class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
@@ -160,7 +160,7 @@
                     <div
                         class="header-admin-table flex justify-between max-sm:flex-wrap p-2 px-5 font-bold text-gray-600 text-xl">
                         <h1 class="text-sm mt-2">Created Task</h1>
-                        <div class="">
+                        {{-- <div class="">
                             <button type="button"
                                 class="border-b-2 text-sm border-red-400 p-1 hover:bg-gray-100 hover:cursor-pointer text-gray-500">
                                 <i class="fa-duotone fa-calendar-star text-blue-500"></i>
@@ -181,7 +181,7 @@
                                 <i class="fa-duotone fa-calendar-star text-blue-500"></i>
                                 Monthly
                             </button>
-                        </div>
+                        </div> --}}
 
                         <div class="flex gap-4">
                             <div class="mt-2">
@@ -210,7 +210,7 @@
                     </div>
 
                     <div class="relative overflow-x-auto">
-                        <table class="text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
@@ -322,11 +322,11 @@
                                                 <i class="fa-duotone fa-file-pen fa-2xl"></i>
 
                                             </a>
-                                            <a href="#" id="delete-task" data-id="{{ $task->id }}"
+                                            {{-- <a href="#" id="delete-task" data-id="{{ $task->id }}"
                                                 class="font-medium text-red-600 hover:text-red-400 dark:text-blue-500 hover:underline">
                                                 <i class="fa-solid fa-file-xmark fa-2xl"></i>
 
-                                            </a>
+                                            </a> --}}
                                         </td>
                                     </tr>
                                 @endforeach
