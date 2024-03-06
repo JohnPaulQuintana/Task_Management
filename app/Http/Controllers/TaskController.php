@@ -22,14 +22,19 @@ class TaskController extends Controller
 
     public function dashboard()
     {
-        $alreadyDo = CompletedTask::where('user_id', Auth::user()->id)->first();
+        // $alreadyDo = CompletedTask::where('user_id', Auth::user()->id)->latest()->get();
+        $alreadyDone = CompletedTask::where('user_id', Auth::user()->id)->latest()->pluck('task_id')->toArray();
 
+        $allTasks = Task::whereNotIn('id', $alreadyDone)->latest()->get();
+
+        // dd($allTasks);
         
-        if($alreadyDo != null){
-            $allTasked = Task::where('id', '!=', $alreadyDo->task_id)->latest()->get();
-        }else{
-            $allTasked = Task::get();
-        }
+        // if($alreadyDo != null){
+        //     $allTasks = Task::where('id', '!=', $alreadyDo->task_id)->latest()->get();
+           
+        // }else{
+        //     $allTasks = Task::get();
+        // }
 
         
         if(Auth::user()->role === 1){
@@ -55,7 +60,7 @@ class TaskController extends Controller
             'daily' => $today,
             'weekly' => $weekly,
             'monthly' => $monthly,
-            'tasks' => $allTasked, 
+            'tasks' => $allTasks, 
             'section1' => $section1, 
             'section2' => $section2, 
             'section3' => $section3, 
