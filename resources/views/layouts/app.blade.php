@@ -98,7 +98,7 @@
                     // Handle the AJAX response here
                     var renderNotif = ''
                     var client = 0
-                    var message = ["has completed the document number:", "has creating a new task document number:"]
+                    var message = ["has completed the document number:", "has created a new task document number:"]
                     // Using a conditional statement
                     if (response.notifs.length > 0) {
                         var role = $('.input-role').val()

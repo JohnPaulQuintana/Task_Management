@@ -234,7 +234,7 @@
                                     <span><input type="text" name="s5_site_location" id="" value="{{ $section5[0]->s5_site_location }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                                 <div class="section-content section-2">
-                                    <span class="span-title span-title-2">WORDER ORDER #:</span>
+                                    <span class="span-title span-title-2">WORK ORDER #:</span>
                                     <span><input type="text" name="s5_work_order" id="" value="{{ $section5[0]->s5_work_order }}" class="border-0 focus:ring-0" style="width: 100%; height: 40px;" readonly></span>
                                 </div>
                                 <div class="section-content section-2">
